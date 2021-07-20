@@ -1,6 +1,6 @@
 FROM python:3.6.13-buster
 
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y git bash
 RUN pip install flake8 autopep8
 RUN pip install Django
 
