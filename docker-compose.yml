@@ -1,8 +1,23 @@
 version: '3'
 services: 
     app:
-        build: ./docker
+        build: ./docker/python
         environment:
             - TZ=Asia/Tokyo
         volumes:
             - ./:/home/python/app
+    db:
+        build: ./docker/mysql
+        volumes:
+            - db-store:/var/lib/mysql
+        ports:
+            - ${DB_PORT}:3306
+        environment:
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            - MYSQL_USER=${MYSQL_USER}
+            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+            - TZ=${TZ}
+volumes:
+    db-store:
+    
