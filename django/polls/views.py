@@ -1,16 +1,14 @@
 from .models import Question
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
-from django.template import loader
 
 
 def index(request: HttpRequest):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    tempalte = loader.get_template('polls/index.html')
     context = {
         'latest_question_list': latest_question_list
     }
-    return HttpResponse(tempalte.render(context, request))
+    return render(request, 'polls/index.html', context)
 
 
 def detail(request: HttpRequest, question_id: int):
