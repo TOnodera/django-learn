@@ -88,7 +88,10 @@ DATABASES = {
         'USER': env.get_value('MYSQL_USER'),
         'PASSWORD': env.get_value('MYSQL_PASSWORD'),
         'HOST': env.get_value('MYSQL_HOST'),
-        'PORT': env.get_value('MYSQL_PORT')
+        'PORT': env.get_value('MYSQL_PORT'),
+        'TEST': {
+            'MIRROR': "default"
+        }
     }
 }
 
