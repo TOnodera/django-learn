@@ -1,7 +1,7 @@
 FROM python:3.6.13-buster
 
 RUN apt-get update && apt-get install -y git bash
-RUN pip install flake8 autopep8 pymysql django-environ
+RUN pip install flake8 autopep8 pymysql django-environ datetime
 RUN pip install Django
 
 WORKDIR /home/python/app
